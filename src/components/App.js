@@ -1,5 +1,5 @@
 import React from 'react';
-import { Column, Row, Title, Button } from './components';
+import { Column, Row, Title, Button } from './index';
 
 const onAddClick = (event) => {
 }

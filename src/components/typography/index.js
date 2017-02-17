@@ -1,4 +1,4 @@
-import './typography.styl';
+import './typography.scss';
 
 import Title from './title';
 import Subtitle from './subtitle';
