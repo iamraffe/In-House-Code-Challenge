@@ -17,7 +17,7 @@ const Button = ({children, label, onClick}) => (
 Button.propTypes = {
   children: PropTypes.string,
   label: PropTypes.string,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
 };
 
 Button.defaultProps = {
