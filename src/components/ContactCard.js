@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-const ContactCard = ({ id, name, phone, email, favorite}) => (
+const ContactCard = ({ id, name, phone, email, favorite, onToggleFavorite}) => (
   <li>
     <div className="card">
       <div className="container">
@@ -19,9 +19,9 @@ const ContactCard = ({ id, name, phone, email, favorite}) => (
             <span>{favorite}</span>
           </li>
         </ul>
-        {/*<button style={{color: favorite ? 'red' : ''}} onClick={favoriteToggle}>
+        <button style={{color: favorite ? 'red' : ''}} onClick={() => onToggleFavorite(id)}>
           favorite
-        </button>*/}
+        </button>
       </div>
     </div>
 
@@ -35,7 +35,8 @@ ContactCard.propTypes = {
   name: PropTypes.string.isRequired,
   phone: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
-  favorite: PropTypes.bool.isRequired
+  favorite: PropTypes.bool.isRequired,
+  onToggleFavorite: PropTypes.func.isRequired
 };
 
 export default ContactCard;

@@ -1,12 +1,13 @@
 import React, { PropTypes } from 'react';
 import ContactCard from './ContactCard';
 
-const ContactList = ({ contacts }) => (
+const ContactList = ({ contacts , onToggleFavorite }) => (
   <ul>
     {contacts.map(contact =>
       <ContactCard
         key={contact.id}
         {...contact}
+        onToggleFavorite={onToggleFavorite}
       />
     )}
   </ul>
@@ -20,7 +21,7 @@ ContactList.propTypes = {
     email: PropTypes.string.isRequired,
     favorite: PropTypes.bool.isRequired,
   }).isRequired).isRequired,
-  //onEditClick: PropTypes.func.isRequired,
+  onToggleFavorite: PropTypes.func.isRequired,
 };
 
 export default ContactList;

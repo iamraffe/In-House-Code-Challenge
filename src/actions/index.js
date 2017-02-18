@@ -16,7 +16,7 @@ export const editContact = (id, name, phone, email, favorite) => ({
   favorite
 });
 
-export const toggleFavourite = (id) => ({
+export const toggleFavorite = (id) => ({
   type: 'TOGGLE_FAVORITE',
   id
 });

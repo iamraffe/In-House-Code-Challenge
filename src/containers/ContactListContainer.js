@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { toggleFavorite } from '../actions';
 import ContactList from '../components/ContactList';
 
 const mapStateToProps = (state) => ({
@@ -6,7 +7,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps =  ({
-  //onTodoClick: toggleTodo
+  onToggleFavorite: toggleFavorite
 });
 
 const ContactListContainer = connect(
