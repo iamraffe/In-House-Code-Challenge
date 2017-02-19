@@ -5,24 +5,13 @@ import React, { Component, PropTypes } from 'react';
 export default class EditContact extends Component {
   constructor(props) {
     super(props);
-    debugger;
     this.state = {
       contact: props.contact,
     };
-    this.handleInputChange = this.handleInputChange.bind(this);
   }
-  componentDidMount() {
-
- }
-  handleInputChange(event) {
-      const target = event.target;
-      const value = target.type === 'checkbox' ? target.checked : target.value;
-      const name = target.name;
-
-      this.setState({
-        [name]: value
-      });
-    }
+    handleChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
+  }
 
   render() {
     return (
@@ -33,23 +22,28 @@ export default class EditContact extends Component {
             name="name"
             type="text"
             value={this.state.contact.name}
+            onChange={this.handleChange}
              />
         </label>
         <br />
         <label>
           Phone:
           <input
-            name="email"
-            type="email"
-            value={this.state.contact.email} />
+            name="phone"
+            type="phone"
+            value={this.state.contact.phone}
+            onChange={this.handleChange}
+            />
         </label>
         <br />
         <label>
-          Phone:
+          Email:
           <input
-            name="phone"
-            type="text"
-            value={this.state.contact.phone} />
+            name="email"
+            type="email"
+            value={this.state.contact.email}
+            onChange={this.handleChange}
+            />
         </label>
         <br />
           <label>
@@ -58,10 +52,11 @@ export default class EditContact extends Component {
               name="favorite"
               type="checkbox"
               checked={this.state.contact.favorite}
+              onChange={this.handleChange}
               />
           </label>
         <button type="submit">
-          Add Contact
+          Edit Contact
         </button>
       </form>
     );

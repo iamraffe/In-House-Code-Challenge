@@ -4,7 +4,6 @@ import { editContact } from '../actions';
 import EditContact from '../components/EditContact';
 
 const mapStateToProps = (state, ownProps) => {
-    debugger;
     return {contact: state.contacts.find( contact => contact.id === parseInt(ownProps.params.id))};
 };
 

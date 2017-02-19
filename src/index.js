@@ -8,7 +8,13 @@ import { Router, Route, browserHistory } from 'react-router';
 
 import configureStore from './store/configureStore';
 
-const store = configureStore();
+const persistedState = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')) : {};
+
+const store = configureStore(persistedState);
+
+store.subscribe(()=>{
+  localStorage.setItem('reduxState', JSON.stringify(store.getState()));
+});
 
 if (document !== null && document !== undefined) {
   const appContainer = document.getElementById('app');
