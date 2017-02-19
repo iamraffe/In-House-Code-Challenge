@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps =  ({
-  onSubmit: editContact
+  editContactDispatch: editContact
 });
 
 const EditContactContainer = connect(

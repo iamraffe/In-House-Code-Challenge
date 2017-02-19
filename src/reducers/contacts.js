@@ -50,6 +50,7 @@ const contacts = (state = [], action) => {
       return state.map(t =>
         contact(t, action)
       );
+
     default:
       return state;
   }

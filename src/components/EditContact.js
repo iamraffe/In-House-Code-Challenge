@@ -1,28 +1,37 @@
 import React, { Component, PropTypes } from 'react';
-//import { connect } from 'react-redux';
-//import { editContact } from '../actions';
 
-export default class EditContact extends Component {
+class EditContact extends Component {
   constructor(props) {
     super(props);
     this.state = {
       contact: props.contact,
     };
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-    handleChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
+
+  handleInputChange(event){
+    const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
+    const newContact = Object.assign({}, this.state.contact, {[event.target.name]: value});
+    this.setState({contact: newContact});
+  }
+
+  handleSubmit(event){
+    event.preventDefault();
+    const contact = this.state.contact;
+    this.props.editContactDispatch(contact.id, contact.name, contact.phone, contact.email, contact.favorite);
   }
 
   render() {
     return (
-      <form >
+      <form onSubmit={this.handleSubmit}>
         <label>
           Name:
           <input
             name="name"
             type="text"
             value={this.state.contact.name}
-            onChange={this.handleChange}
+            onChange={this.handleInputChange}
              />
         </label>
         <br />
@@ -32,7 +41,7 @@ export default class EditContact extends Component {
             name="phone"
             type="phone"
             value={this.state.contact.phone}
-            onChange={this.handleChange}
+            onChange={this.handleInputChange}
             />
         </label>
         <br />
@@ -42,7 +51,7 @@ export default class EditContact extends Component {
             name="email"
             type="email"
             value={this.state.contact.email}
-            onChange={this.handleChange}
+            onChange={this.handleInputChange}
             />
         </label>
         <br />
@@ -52,7 +61,7 @@ export default class EditContact extends Component {
               name="favorite"
               type="checkbox"
               checked={this.state.contact.favorite}
-              onChange={this.handleChange}
+              onChange={this.handleInputChange}
               />
           </label>
         <button type="submit">
@@ -65,4 +74,7 @@ export default class EditContact extends Component {
 
 EditContact.propTypes = {
   contact: PropTypes.object.isRequired,
+  editContactDispatch: PropTypes.func.isRequired
 };
+
+export default EditContact;

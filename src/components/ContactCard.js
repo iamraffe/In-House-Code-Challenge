@@ -26,9 +26,6 @@ const ContactCard = ({ id, name, phone, email, favorite, onToggleFavorite}) => (
         <Link to={`/contact/${id}`}> Edit </Link>
       </div>
     </div>
-
-    <button>Edit</button>
-
   </li>
 );
 
