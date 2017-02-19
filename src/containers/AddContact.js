@@ -18,17 +18,26 @@ let AddContact = ({ dispatch }) => {
         user.phone.value = '';
         user.email.value = '';
       }}>
+      <label>
+        Name
+      </label>
       <input ref={name => {
           user.name = name;
-        }} />
+        }}  />
         <br />
+          <label>
+            Phone:
+          </label>
         <input ref={phone => {
             user.phone = phone;
-          }} />
+          }} label='phone' />
           <br />
+            <label>
+              Email:
+            </label>
           <input ref={email => {
               user.email = email;
-            }} />
+            }} label='email' />
             <br />
         <Button label="Add Contact" type="submit" />
       </form>

@@ -1,20 +1,19 @@
 import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { editContact } from '../actions';
+//import { connect } from 'react-redux';
+//import { editContact } from '../actions';
 
-class EditContact extends Component {
+export default class EditContact extends Component {
   constructor(props) {
     super(props);
+    debugger;
     this.state = {
-      user:{
-        name: props.name,
-        phone: props.phone,
-        email: props.email,
-        favorite: props.favorite
-      }
+      contact: props.contact,
     };
     this.handleInputChange = this.handleInputChange.bind(this);
   }
+  componentDidMount() {
+
+ }
   handleInputChange(event) {
       const target = event.target;
       const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -33,7 +32,7 @@ class EditContact extends Component {
           <input
             name="name"
             type="text"
-            value={this.state.user.name}
+            value={this.state.contact.name}
              />
         </label>
         <br />
@@ -42,7 +41,7 @@ class EditContact extends Component {
           <input
             name="email"
             type="email"
-            value={this.state.user.email} />
+            value={this.state.contact.email} />
         </label>
         <br />
         <label>
@@ -50,7 +49,7 @@ class EditContact extends Component {
           <input
             name="phone"
             type="text"
-            value={this.state.user.phone} />
+            value={this.state.contact.phone} />
         </label>
         <br />
           <label>
@@ -58,8 +57,8 @@ class EditContact extends Component {
             <input
               name="favorite"
               type="checkbox"
-              checked={this.state.favorite}
-              onChange={this.handleInputChange} />
+              checked={this.state.contact.favorite}
+              />
           </label>
         <button type="submit">
           Add Contact
@@ -70,14 +69,5 @@ class EditContact extends Component {
 }
 
 EditContact.propTypes = {
-  name: PropTypes.string.isRequired,
-  phone: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  favorite: PropTypes.bool.isRequired,
-
-  dispatch: PropTypes.func.isRequired
+  contact: PropTypes.object.isRequired,
 };
-
-connect()(editContact);
-
-export default EditContact;

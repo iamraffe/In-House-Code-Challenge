@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
 
 const ContactCard = ({ id, name, phone, email, favorite, onToggleFavorite}) => (
   <li>
@@ -22,6 +23,7 @@ const ContactCard = ({ id, name, phone, email, favorite, onToggleFavorite}) => (
         <button style={{color: favorite ? 'red' : ''}} onClick={() => onToggleFavorite(id)}>
           favorite
         </button>
+        <Link to={`/contact/${id}`}> Edit </Link>
       </div>
     </div>
 
