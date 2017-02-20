@@ -1,18 +1,16 @@
 import React from 'react';
 import { Column, Row, Title } from './index';
-import AddContact from '../containers/AddContact';
 import ContactListContainer from '../containers/ContactListContainer';
 import Menu from '../components/Menu/Menu';
 
-const App = () => (
+const FavoritesPage = () => (
   <Column className="app">
     <Menu />
-    <Row><Title>Contact Book</Title></Row>
+    <Row><Title>Favorite Contacts</Title></Row>
     <Row>
-      <AddContact />
-      <ContactListContainer />
+      <ContactListContainer filter="FAVORITES" />
     </Row>
   </Column>
 );
 
-export default App;
+export default FavoritesPage;

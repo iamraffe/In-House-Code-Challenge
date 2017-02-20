@@ -1,3 +1,9 @@
 // Set up your root reducer here...
  import { combineReducers } from 'redux';
- export default combineReducers;
+ import contacts from './contacts';
+
+ const rootReducer = combineReducers({
+   contacts
+ });
+
+export default rootReducer;
