@@ -1,7 +1,9 @@
 import React, { PropTypes } from 'react';
 import ContactCard from './ContactCard';
+import './stylesheets.scss';
 
 const ContactList = ({ contacts , onToggleFavorite }) => (
+<div className={"contacts-box"}>
   <ul>
     {contacts.map(contact =>
       <ContactCard
@@ -11,6 +13,7 @@ const ContactList = ({ contacts , onToggleFavorite }) => (
       />
     )}
   </ul>
+</div>
 );
 
 ContactList.propTypes = {

@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import './controls.scss';
 
 const resolveButtonLabel = (children, label) => {
   if (typeof children === 'string' && children.length > 0) {
@@ -10,8 +11,8 @@ const resolveButtonLabel = (children, label) => {
   return 'Label';
 };
 
-const Button = ({children, label, onClick}) => (
-  <button onClick={onClick}>{resolveButtonLabel(children, label)}</button>
+const Button = ({children, label, onClick, className}) => (
+  <button onClick={onClick} className={`btn ${className}`}>{resolveButtonLabel(children, label)}</button>
 );
 
 Button.propTypes = {

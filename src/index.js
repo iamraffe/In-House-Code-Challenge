@@ -23,7 +23,7 @@ if (document !== null && document !== undefined) {
   if (appContainer) {
     render(
       <Provider store={store}>
-       <Router history={browserHistory}>
+        <Router history={browserHistory}>
          <Route path="/" component={App} />
           <Route path="/contact/:id" component={EditContactPage} />
           <Route path="/favorites" component={FavoritesPage} />

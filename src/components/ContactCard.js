@@ -1,31 +1,26 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
+import { Button } from '../components/index';
 
 const ContactCard = ({ id, name, phone, email, favorite, onToggleFavorite}) => (
-  <li>
-    <div className="card">
-      <div className="container">
-        <h4><b>{name}</b></h4>
-        <ul className="personalInfo">
+  <li className={"card"}>
+      <div className="{container}">
+        <h4 className={"name"}><b>{name}</b></h4>
+        <ul className={"personal-info"}>
           <li>
-            <span className="title">Phone:</span>
+            <span className={"title"}>Phone:</span>
             <span>{phone}</span>
           </li>
           <li>
-            <span className="title">Email:</span>
+            <span className={"title"}>Email:</span>
             <span>{email}</span>
           </li>
           <li>
-            <span className="title">Favorite:</span>
-            <span>{favorite}</span>
+            <Button label="Favorite" className={favorite ? 'favorite' : 'default' } onClick={() => onToggleFavorite(id)} />
           </li>
         </ul>
-        <button style={{color: favorite ? 'red' : ''}} onClick={() => onToggleFavorite(id)}>
-          favorite
-        </button>
-        <Link to={`/contact/${id}`}> Edit </Link>
+        <Link className={"btn default"} to={`/contact/${id}`}> Edit Contact</Link>
       </div>
-    </div>
   </li>
 );
 

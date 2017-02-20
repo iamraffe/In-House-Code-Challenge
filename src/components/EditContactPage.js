@@ -1,20 +1,15 @@
 import React from 'react';
-import { Column, Row, Title, Button } from './index';
+import { Column, Row, Title } from './index';
 import EditContactContainer from '../containers/EditContactContainer';
-
-/*const onAddClick = (event) => {
-   event.preventDefault();
-};*/
+import Menu from '../components/Menu/Menu';
 
 const EditContactPage = ({ params }) => (
   <Column className="editContact">
+    <Menu />
     <Row><Title>Edit Contact</Title></Row>
 
     <Row>
       <EditContactContainer params={params} />
-      {/*<Button label="Add Contact" onClick={onAddClick} />
-      <ContactList />
-        */}
     </Row>
   </Column>
 );

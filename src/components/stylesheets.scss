@@ -1,0 +1,42 @@
+.contacts-box{
+  display: inline-block;
+  margin: 0 10px;
+
+  ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .card{
+    padding: 15px;
+    vertical-align: top;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 5px 5px;
+    min-width: 220px;
+
+    .name{
+      margin: 5px 0;
+      text-transform: capitalize;
+    }
+    .personal-info{
+      margin: 5px 0;
+      li{
+        margin: 5px 0;
+        .title{
+          font-weight: bold;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}
+.contact-box{
+  .edit-form{
+      margin-bottom: 5px;
+      display: block;
+  }
+}

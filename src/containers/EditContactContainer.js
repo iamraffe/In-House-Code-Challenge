@@ -1,4 +1,3 @@
-import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { editContact } from '../actions';
 import EditContact from '../components/EditContact';
