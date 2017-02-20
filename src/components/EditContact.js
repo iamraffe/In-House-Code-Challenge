@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { browserHistory } from 'react-router';
 import { Button } from '../components/index';
 
 class EditContact extends Component {
@@ -21,6 +22,7 @@ class EditContact extends Component {
     event.preventDefault();
     const contact = this.state.contact;
     this.props.editContactDispatch(contact.id, contact.name, contact.phone, contact.email, contact.favorite);
+    browserHistory.push('/');
   }
 
   render() {
@@ -76,7 +78,7 @@ class EditContact extends Component {
         </div>
         <Button className={"default"} label="Edit Contact" type="submit" />
       </form>
-      <Button className={"default"} label="Back" onClick={(e) => {e.preventDefault(); window.history.back();}} />
+      <Button className={"default"} label="Back" onClick={(e) => {e.preventDefault(); browserHistory.goBack();}} />
     </div>
 
     );
